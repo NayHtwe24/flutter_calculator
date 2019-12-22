@@ -1,4 +1,4 @@
-# nayhtwe_calculator
+# Flutter Tutorials By NayHtwe
 
 A new Flutter project.
 
