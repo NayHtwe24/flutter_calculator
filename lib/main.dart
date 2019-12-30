@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:nayhtwe_calculator/tutorial/my_home.dart';
+import 'package:nayhtwe_calculator/tutorial/calculator.dart';
+import 'package:splashscreen/splashscreen.dart';
 
 void main() {
   runApp(MyApp());
@@ -13,7 +15,32 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
         primaryColor: Colors.red
     ),
-      home: HomePage(),
+      home: Welcome(),
+    );
+  }
+}
+class Welcome extends StatefulWidget {
+  @override
+  _WelcomeState createState() => _WelcomeState();
+}
+
+class _WelcomeState extends State<Welcome> {
+  @override
+  Widget build(BuildContext context) {
+    return SplashScreen(
+        seconds: 6,
+        navigateAfterSeconds: HomePage(),
+        title: Text('Welcome To Fullstack Batch2',
+          style: TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 20.0,
+              color: Colors.white
+          ),),
+        image: Image.network('https://myanmarlinks.net/front/img/mmlinks_logo_white.png'),
+        backgroundColor: Colors.black,
+        styleTextUnderTheLoader: TextStyle(),
+        photoSize: 100.0,
+        loaderColor: Colors.blue
     );
   }
 }
@@ -36,12 +63,12 @@ class HomePage extends StatelessWidget {
         },
       ),
       RaisedButton(
-        child: Text("Calculators"),
+        child: Text("Calculator"),
         shape: StadiumBorder(),
         color: Colors.blue,
         colorBrightness: Brightness.dark,
         onPressed: () {
-          Route route = MaterialPageRoute(builder: (context) => MyHome());
+          Route route = MaterialPageRoute(builder: (context) => Calculator());
           Navigator.push(context, route);
         },
       )
